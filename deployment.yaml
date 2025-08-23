@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: test-app
+        app.kubernetes.io/name: test-app
     spec:
       containers:
         - name: nginx
