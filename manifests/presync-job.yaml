@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: presync-job
+  namespace: pdb-issue-test
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: fail-job
+        image: busybox
+        command: ["sh", "-c", "echo 'PreSync job running...'; exit 1"]
